@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  webapi:
+    image: ${DOCKER_REGISTRY-}webapi
+    build:
+      context: .
+      dockerfile: MyTrace/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+      - DB_HOST=host.docker.internal
+      - DB_PORT=1434
+      - DB_NAME=MyTrace
+      - DB_USER=sa
+      - DB_SA_PASSWORD=Password_LDS2223_03
+      - DB_Encrypt=False
+    ports:
+      - '80:80'
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ./MyTrace/wwwroot:/app/wwwroot

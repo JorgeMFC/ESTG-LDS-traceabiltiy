@@ -1,0 +1,50 @@
+stages:
+  - build
+  - test
+
+.restrictions:
+  only:
+    - master
+    - /^Milestone#[0-9]+$/
+    - merge_requests
+
+.restrictions_dotnet:
+  image: mcr.microsoft.com/dotnet/sdk:6.0
+  before_script:
+    - cd ./webapi
+  extends: .restrictions
+
+.restrictions_react:
+  image: node:19-alpine
+  before_script:
+    - cd ./frontend
+    - npm install
+  extends: .restrictions
+
+dotnet-build:
+  stage: build
+  script:
+    - cd MyTrace
+    - dotnet restore
+    - dotnet build
+  extends: .restrictions_dotnet
+
+dotnet-tests:
+  stage: test
+  script:
+    - cd MyTraceTests
+    - dotnet restore
+    - dotnet test --collect:"XPlat Code Coverage"
+  extends: .restrictions_dotnet
+
+react-build:
+  stage: build
+  script:
+    - npm run build
+  extends: .restrictions_react
+
+react-tests:
+  stage: test
+  script:
+    - npm run test:ci
+  extends: .restrictions_react

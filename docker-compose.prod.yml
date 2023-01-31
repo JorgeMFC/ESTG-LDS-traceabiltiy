@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    extends:
+      file: ./sqlserver/docker-compose.prod.yml
+      service: sqlserver
+    networks:
+      - mynetwork
+  webapi:
+    extends:
+      file: ./webapi/docker-compose.prod.yml
+      service: webapi
+    depends_on:
+      - sqlserver
+    networks:
+      - mynetwork
+  frontend:
+    extends:
+      file: ./frontend/docker-compose.prod.yml
+      service: frontend
+    depends_on:
+      - webapi
+    networks:
+      - mynetwork
+networks:
+  mynetwork:

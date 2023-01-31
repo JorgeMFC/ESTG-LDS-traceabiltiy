@@ -1,0 +1,19 @@
+body {
+  @apply themeColors;
+}
+
+.themeColors {
+  @apply bg-[#F8F8F8] text-black;
+}
+
+.theme {
+  @apply h-screen;
+}
+
+.shadow-footer {
+  @apply shadow-[0_35px_60px_-22px_rgba(64,64,64,1)];
+}
+
+.input {
+  @apply focus:ring-gray-300 focus:border-gray-300 block w-full sm:text-sm border-gray-300;
+}

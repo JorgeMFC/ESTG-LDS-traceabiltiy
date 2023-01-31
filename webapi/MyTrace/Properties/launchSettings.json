@@ -1,0 +1,43 @@
+{
+  "profiles": {
+    "MyTrace": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DB_HOST": "localhost",
+        "DB_PORT": "1434",
+        "DB_NAME": "MyTrace",
+        "DB_USER": "sa",
+        "DB_SA_PASSWORD": "Password_LDS2223_03",
+        "DB_Encrypt": "False"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:5195"
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
+      "publishAllPorts": true
+    }
+  },
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:43019",
+      "sslPort": 0
+    }
+  }
+}

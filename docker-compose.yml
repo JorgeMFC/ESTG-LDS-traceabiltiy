@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    ports:
+      - '1434:1433'
+    extends:
+      file: ./sqlserver/docker-compose.yml
+      service: sqlserver
+  webapi:
+    ports:
+      - '80:80'
+    extends:
+      file: ./webapi/docker-compose.yml
+      service: webapi
+    depends_on:
+      - sqlserver
+  frontend:
+    ports:
+      - '3000:3000'
+    extends:
+      file: ./frontend/docker-compose.yml
+      service: frontend
+    depends_on:
+      - webapi

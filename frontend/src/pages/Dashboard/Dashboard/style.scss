@@ -1,0 +1,7 @@
+.dashboard-menu-selected {
+  @apply flex gap-2 text-[#3850AD];
+}
+
+.dashboard-menu-not-selected {
+  @apply flex gap-2 text-black;
+}

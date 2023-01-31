@@ -1,0 +1,39 @@
+.myTable {
+	@apply table-fixed sm:table-auto w-full;
+}
+
+.myTable tr {
+	@apply h-10 odd:bg-[#F4F2FF] even:bg-white border-t-[1px] last:border-b;
+}
+
+.myTable th {
+	@apply uppercase text-[#6E6893] text-xs text-left p-2;
+}
+
+.myTable td {
+	@apply normal-case text-sm text-left p-2 truncate;
+}
+
+.myTableTop {
+	@apply flex gap-2 p-2 flex-col sm:flex-row justify-between;
+}
+
+.myTableSearch {
+	@apply relative text-[#6E6893] overflow-auto;
+}
+
+.myTableSearch span {
+	@apply absolute inset-y-0 left-0 flex items-center pl-2;
+}
+
+.myTableSearch input {
+	@apply py-2 text-sm bg-[#F4F2FF] pl-10 rounded-md border-none focus:ring-0 w-96;
+}
+
+.myTableBottom {
+	@apply flex justify-end p-2 gap-5 text-[#6E6893] align-middle text-xs font-semibold;
+}
+
+.myTableBottom select {
+	@apply text-xs border-transparent focus:border-transparent focus:ring-0 pt-0 pb-0;
+}

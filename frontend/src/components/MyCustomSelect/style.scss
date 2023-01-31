@@ -1,0 +1,21 @@
+.MyCustomSelectContainer {
+  cursor: pointer !important;
+}
+
+.MyCustomSelect__input {
+  box-shadow: none !important;
+}
+
+.MyCustomSelect__control:focus {
+  border: 1px solid red !important;
+}
+
+/* .MyCustomSelect__multi-value__remove {
+	background-color: blue !important;
+	color: white !important;
+}
+ */
+
+.MyCustomSelect__control--is--focused {
+  border: 1px solid red !important;
+}

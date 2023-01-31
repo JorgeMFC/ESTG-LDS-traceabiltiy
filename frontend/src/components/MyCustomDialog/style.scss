@@ -1,0 +1,52 @@
+.DialogOverlay {
+  @apply flex min-h-full items-center justify-center overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 md:h-full bg-gray-500 bg-opacity-75 transition-opacity;
+}
+
+.DialogContentWrapper {
+  @apply relative p-4 w-full h-full md:h-auto;
+}
+
+.DialogContentSection {
+  @apply relative bg-white rounded-xl shadow;
+}
+
+.DialogActionsSection {
+  @apply flex justify-end items-center w-full bg-white p-4 space-x-2 rounded-xl /*rounded-b*/ /*border-t*/;
+}
+
+.DialogTitleSection {
+  @apply flex justify-between items-start p-4 rounded-xl /*rounded-t*/ /*border-b*/;
+}
+
+.DialogContentInternalSection {
+  @apply overflow-y-auto p-4;
+  max-height: 30rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.DialogOverlay[data-state='open'],
+.DialogContent[data-state='open'] {
+  animation: fadeIn 300ms ease-out;
+}
+
+.DialogOverlay[data-state='closed'],
+.DialogContent[data-state='closed'] {
+  animation: fadeOut 300ms ease-in;
+}
